@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 1 导入vue包 -->
+<script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
+<style >
+	[v-cloak]{
+		dispaly:none;
+	}
+</style>
+</head>
+<body>
+<div id="app">
+	<!-- 
+	v-text指令与{{}}一样均可获取到模型中的值
+	v-text指令不会出现闪烁问题
+	插值表达式可以在其先后添加其他值,其只会替换自己的占位符,而v-text会覆盖元素中内容
+	 -->
+	<p v-text="msg"></p>
+	
+
+</div>
+
+<script >
+	var vm = new Vue({
+		el:'#app',
+		data:{
+			msg:'Hello Vue.js'
+		}
+	});
+</script>
+
+</body>
+</html>

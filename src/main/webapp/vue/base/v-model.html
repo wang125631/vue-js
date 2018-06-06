@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 1 导入vue包 -->
+<script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
+
+</head>
+<body>
+<div id="app">
+	<!-- 
+		v-bind只能实现数据的单向绑定,从M绑定到V
+		
+	 -->
+
+	<p>{{msg}}</p>
+	<input v-bind:value="msg">
+	<input v-model="msg">
+</div>
+
+<script >
+
+	var vm = new Vue({
+		el:'#app',
+		data:{
+			msg:'Hello Vue.js'
+		},
+		// 这个method属性中定义了当前Vue实例所有可用的方法
+		methods:{
+			
+		}
+	});
+</script>
+
+</body>
+</html>

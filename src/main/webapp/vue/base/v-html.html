@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 1 导入vue包 -->
+<script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
+<style >
+	[v-cloak]{
+		dispaly:none;
+	}
+</style>
+</head>
+<body>
+<div id="app">
+	<!-- 
+	插值表达式和v-text会将数据内容进行转义
+	v-html指令可以使得html标签得以正确解析
+	 -->
+	<p v-text="msg2"></p>
+	<p>{{msg2}}</p>
+	<p v-html="msg2"></p>
+</div>
+
+<script >
+	var vm = new Vue({
+		el:'#app',
+		data:{
+			msg:'Hello Vue.js',
+			msg2:'<h1>这是一个HTML标签</h1>'
+		}
+	});
+</script>
+
+</body>
+</html>

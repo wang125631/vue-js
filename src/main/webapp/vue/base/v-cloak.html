@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 1 导入vue包 -->
+<script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
+<style >
+	[v-cloak]{
+		dispaly:none;
+	}
+</style>
+</head>
+<body>
+<div id="app">
+	<!-- 使用v-cloak 解决插值表达式闪烁问题 -->
+	<p v-cloak>{{msg}}</p>
+</div>
+
+<script >
+	var vm = new Vue({
+		el:'#app',
+		data:{
+			msg:'Hello Vue.js'
+		}
+	});
+</script>
+
+</body>
+</html>

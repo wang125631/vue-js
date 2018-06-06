@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 1 导入vue包 -->
+<script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
+<style>
+	.red{
+		color:red;
+	}
+	.thin{
+		font-weight:200;
+	}
+	.italic{
+	font-style:italic; 
+	}
+	.active{
+	letter-spacing:0.5em;
+	}
+</style>
+</head>
+<body>
+<div id="app">
+	<h1 class="red thin">H1标签</h1>
+	<!-- 
+		1.使用v-bind,使用数组 ['','']
+	 -->
+	 <h1 :class="['red','thin']">H1标签</h1>
+	 <!-- 
+		2.支持三目运算
+	 -->
+	 <h1 :class="[flag ? 'red' : 'thin']">H1标签</h1>
+	  <!-- 
+		3.数组中对象的方式
+	 -->
+	  <h1 :class="[{'thin':flag,'red':!flag}]">H1标签</h1>
+	    <!-- 
+		4.对象的方式
+	 -->
+	  <h1 :class="{thin:flag,red:flag,italic:true}">H1标签</h1>
+	  <!-- 属性中含有"-" 则必须为其添加 单引号 -->
+	  <h1 :style ="{color:'gray','font-weight':'200'}">H1标签</h1>
+		<!-- 在对象中 -->
+	   <h1 :style ="styleObj">H1标签</h1>
+	   <!-- 在数组中 -->
+	   <h1 :style ="[styleObj,styleObj2]">H1标签</h1>
+</div>
+<script >
+	var vm = new Vue({
+		el:'#app',
+		data:{
+			flag:true,
+			styleObj:{
+				'color':'gray',
+				'font-weight':'200'
+				},
+			styleObj2:{
+				'font-style':'italic'
+			}
+		},
+		// 这个method属性中定义了当前Vue实例所有可用的方法
+		methods:{
+		
+		}
+	});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 1 导入vue包 -->
+<script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
+<style>
+[v-cloak] {
+	display: none
+}
+</style>
+</head>
+<body>
+	<div id="app">
+		<input type="button" value="start" v-on:click="start">
+		 <input type="button" value="stop" v-on:click="stop">
+		<h2 v-cloak>{{message}}</h2>
+	</div>
+	<script>
+	
+	var vm = new Vue({
+		//el 表示,当前我们new的Vue实例,要控制那个区域
+		el:'#app',
+		//data 中存放的是el 属性中需要的数据
+		data:{
+			message: 'hello vue.js',
+			interval: null
+		},
+		methods:{
+			/* start(){
+				var _this=this;
+				//console.log(this.message);
+				setInterval(function(){
+				var str = _this.message;
+				var start = str.substring(0,1);
+				var end =str.substring(1);
+				_this.message = end+start;
+				},200)
+			} */
+			start(){
+				if (this.interval != null) return;
+				this.interval =setInterval(() => {
+					var str = this.message;
+					var start = str.substring(0,1);
+					var end = str.substring(1);
+					this.message=end+start;
+				},200);
+			},
+			stop(){
+				clearInterval(this.interval);
+				this.interval=null;
+			}
+			
+		}
+	});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 1 导入vue包 -->
+<script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
+<style >
+	.inner{
+		height:150px;
+		background-color: gray;
+		
+	}
+</style>
+</head>
+<body>
+	<!-- 
+		.stop 阻止冒泡 事件点击不会触发外层div事件
+		.prevent 阻止默认行为
+		.captrue 添加事件侦听器时 使用事件捕获机制(先)
+	 -->
+<!-- <div id="app" class="inner" @click.capture="divHandler">
+	<input type="button" value="阻止冒泡" @click.stop="btnHandler">	
+	<a href="http://www.baidu.com" @click.prevent.stop="linkClick">阻止默认行为</a>
+	<input type="button" value="事件捕获机制" @click="btnHandler">	
+</div> -->
+		<!-- 
+		.self 只有其本身被调用时才会触发
+		.once 事件只触发一次
+	 -->
+	<div id="app" class="inner" @click.self="divHandler">
+		<input type="button" value="本身" @click.once="btnHandler">	
+	</div>
+	
+	
+<script >
+	//创建一个Vue实例
+	//在导入包之后,在浏览器的内存中就多了一个vue构造函数
+	var vm = new Vue({
+		el:'#app',
+		data:{
+			message: 'hello vue.js'
+		},
+		methods:{
+			divHandler(){
+				console.log("this is div handler");
+			},
+			btnHandler(){
+				console.log("this is btn handler");
+			},
+			linkClick(){
+				console.log("this is link handler");
+			}
+		}
+	});
+</script>
+
+</body>
+</html>
