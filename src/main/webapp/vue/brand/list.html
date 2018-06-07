@@ -22,7 +22,7 @@
 
 				<label>
 					Name:
-					<input type="text" class="form-control" v-model="name">
+					<input type="text" class="form-control" v-model="name" @keyup.enter	="save">
 				</label>
 				<label>
 						&nbsp;
@@ -48,10 +48,10 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr v-for="(car,i) in list" :key="i" align="center">
+			<tr v-for="(car,i) in search(keywords)" :key="i" align="center">
 				<td>{{car.id}}</td>
 				<td>{{car.name}}</td>
-				<td>{{car.ctime}}</td>
+				<td>{{car.ctime | dataFormat('yyyy-mm-dd hh:mm:ss')}}</td>
 				<td><a href="" @click.prevent="del(i)">删除</a></td>
 			</tr>
 		</tbody>
@@ -59,6 +59,48 @@
 
 </div>
 <script>
+	//全局过滤器
+	Vue.filter('dataFormat',function(data,pattern){
+
+		var dt = new Date(data);
+		var y = dt.getFullYear();
+		var m = (dt.getMonth() + 1).toString().padStart(2,'0');
+		var d = (dt.getDate()).toString().padStart(2,'0');
+		var p = pattern.toLowerCase();
+	
+		 if(p == 'yyyy-mm-dd'){
+			// return y+'-'+m+'-'+d;
+			return `${y}-${m}-${d}`;
+		 }else{
+			 var hh = (dt.getHours()).toString().padStart(2,'0');
+			 var mm = (dt.getMinutes()).toString().padStart(2,'0');
+			 var ss = (dt.getSeconds()).toString().padStart(2,'0');
+			 	 return `${y}-${m}-${d} ${hh}:${mm}:${ss}`;
+		 }
+	});
+
+	//自定义键盘码
+	Vue.config.keyCodes.f2=113;
+
+	//定义Vue的全局指令 在定义的时候不需要加 v-前缀
+	//参数一 为指令的名称 参数二 为对象,在这个对象上有相关的函数 这些函数可以砸特定的阶段实现相关的操作
+	Vue.directives('focus',{
+		//指令函数提供的钩子参数
+		bind:function(){
+
+		},
+
+		//当被绑定的运算插入时候
+		inserted:function(e1){
+			e1.focus();
+		},
+		//更新时候
+		updated:function(){
+
+		}
+	});
+
+
 	var vm = new Vue({
 		el:'#app',
 		data:{
@@ -81,9 +123,34 @@
 			},
 			del(i){
 				this.list.splice(i);
+			},
+			//根据关键字对数据进行搜索
+			search(keywords){
+
+				// var newList= [];
+				// this.list.forEach(item =>{
+				// 	if (item.name.indexOf(keywords) !=-1) {
+				// 		newList.push(item);
+				// 	}
+				// });
+				// return newList;
+
+				//forEach some filter findIndex 都属于数组的新方法
+				// 在ES6中 为字符串提供了一个新方法叫	String.prototype.includes('')
+				return this.list.filter(item =>
+					{
+						if (item.name.includes(keywords)){
+							return item;
+						}
+					}
+				);
+
 			}
 		}
 	});
+
+
+
 </script>
 
 </body>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 1 导入vue包 -->
+<script src="https://cdn.bootcss.com/vue/2.5.16/vue.js"></script>
+</head>
+<body>
+<div id="app">
+	<!-- 不提倡手动操作dom元素 -->
+	<p>{{message | myFormat('世界')}}</p>
+</div>
+<script >
+	//定义一个Vue的全局过滤器
+	Vue.filter('myFormat',function(data,arg){
+		return data.replace(/vue.js/g,arg);
+	});
+
+	//创建一个Vue实例
+	//在导入包之后,在浏览器的内存中就多了一个vue构造函数
+	var vm = new Vue({
+		//el 表示,当前我们new的Vue实例,要控制那个区域
+		el:'#app',
+		//data 中存放的是el 属性中需要的数据
+		data:{
+			message: 'hello vue.js first in vue.js'
+		}
+	});
+
+
+
+
+</script>
+
+</body>
+</html>

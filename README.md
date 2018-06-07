@@ -28,5 +28,10 @@
 
 [v-if/v-show指令](https://github.com/wang125631/vue-js/blob/master/src/main/webapp/vue/base/v-if.html)
 
+[vue全局过滤器]()
+
+[vue局部过滤器]()
 
 #### Vue综合使用
+
+[]
