@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 1 导入vue包 -->
+<script src="https://cdn.bootcss.com/vue/2.5.16/vue.js"></script>
+</head>
+<body>
+<div id="app">
+	<!-- 不提倡手动操作dom元素 -->
+	<p>{{message}}</p>
+	<input type="text" v-show="'red'" >
+</div>
+<script >
+	
+	// 注册一个全局自定义指令 `v-focus`
+		Vue.directive('focus', {
+			// 当被绑定的元素插入到 DOM 中时……
+			inserted: function (el) {
+				// 聚焦元素
+				el.focus();
+			}
+			})
+
+	var vm = new Vue({
+		//el 表示,当前我们new的Vue实例,要控制那个区域
+		el:'#app',
+		//data 中存放的是el 属性中需要的数据
+		data:{
+			message: 'hello vue.js'
+		},
+		directives: {
+			//这个方法等同于 bind 和 update 方法 
+			'show':function(el,binding){
+				el.style.color=binding.value;
+			}
+		}
+	});
+</script>
+
+</body>
+</html>

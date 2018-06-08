@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 1 导入vue包 -->
+<script src="https://cdn.bootcss.com/vue/2.5.16/vue.js"></script>
+</head>
+<body>
+<div id="app">
+	<!-- 不提倡手动操作dom元素 -->
+	<p>{{message}}</p>
+
+	<input type="text" v-focus >
+</div>
+<script >
+	//创建一个Vue实例
+	//在导入包之后,在浏览器的内存中就多了一个vue构造函数
+
+	//使用Vue.directive() 定义一个全局的指令 v-focus
+	//参数一为指令的名称,在定义指令是指令的名称前面不加v- 前缀 而在调用时候加v- 前缀进行调用
+	//参数二为指令的对象,在这个对象上可以使用钩子函数在其特定的阶段,执行相关的操作
+	// Vue.directive('focus',{
+		
+	// 	当指令绑定到元素上的时候,会立即执行这个bind函数,只执行一次
+	// 	 bind:function(el){
+	// 	 	//在每个函数中 第一个参数永远是el 便是被绑定了指令的那个元素 这个el元素,是一个元素的JS对象
+	// 	 	//el.focus();
+	// 	 },
+	// 	insertd:function(el){
+	// 		el.focus();
+	// 	}
+	// 	 ,
+	// 	 updated:function(el){
+	// 	 	//el.fouces();
+	// 	 }
+	// })
+	// 注册一个全局自定义指令 `v-focus`
+		Vue.directive('focus', {
+			// 当被绑定的元素插入到 DOM 中时……
+			inserted: function (el) {
+				// 聚焦元素
+				el.focus();
+			}
+			})
+
+	var vm = new Vue({
+		//el 表示,当前我们new的Vue实例,要控制那个区域
+		el:'#app',
+		//data 中存放的是el 属性中需要的数据
+		data:{
+			message: 'hello vue.js'
+		}
+	});
+</script>
+
+</body>
+</html>
