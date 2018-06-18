@@ -14,7 +14,7 @@
 		
 	 -->
 	<input type="button" value="按钮1"  v-on:click="console.log('记录点击')">
-		<input type="button" value="按钮" :title="msg" v-on:click="alert('记录点击')">
+	<input type="button" value="按钮" :title="msg" @click="alert('记录点击')">
 	<input type="button" value="按钮2"  v-on:mouseover="show">
 </div>
 

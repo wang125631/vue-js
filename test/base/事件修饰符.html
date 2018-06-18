@@ -19,19 +19,19 @@
 		.prevent 阻止默认行为
 		.captrue 添加事件侦听器时 使用事件捕获机制(先)
 	 -->
-<!-- <div id="app" class="inner" @click.capture="divHandler">
-	<input type="button" value="阻止冒泡" @click.stop="btnHandler">	
+<div id="app" class="inner" @click.captrue="divHandler">
+	<input type="button" value="阻止冒泡" @click="btnHandler">	
 	<a href="http://www.baidu.com" @click.prevent.stop="linkClick">阻止默认行为</a>
 	<input type="button" value="事件捕获机制" @click="btnHandler">	
-</div> -->
+</div>
 		<!-- 
 		.self 只有其本身被调用时才会触发
 		.once 事件只触发一次
 	 -->
-	<div id="app" class="inner" @click.self="divHandler">
+	<!-- <div id="app" class="inner" @click.self="divHandler">
 		<input type="button" value="本身" @click.once="btnHandler">	
 	</div>
-	
+	 -->
 	
 <script >
 	//创建一个Vue实例
