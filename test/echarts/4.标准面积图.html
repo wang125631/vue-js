@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <!-- 1 导入vue包 -->
+    <script src="https://cdn.bootcss.com/echarts/4.1.0.rc2/echarts-en.common.js"></script>
+</head>
+
+<body>
+    <div id="app">
+       
+
+        <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+        <div id="main" style="height:400px;width: 1250px;"></div>
+    </div>
+    <script>
+         // 使用
+     
+                var myChart = echarts.init(document.getElementById('main')); 
+                
+                var option =  {
+                        title: {
+                            text: '某楼盘销售情况',
+                            subtext: '纯属虚构'
+                        },
+                        tooltip: {
+                            trigger: 'axis'
+                        },
+                        legend: {
+                            data: ['意向', '预购', '成交']
+                        },
+                        toolbox: {
+                            show: true,
+                            feature: {
+                                mark: { show: true },
+                                dataView: { show: true, readOnly: false },
+                                magicType: { show: true, type: ['line', 'bar', 'stack', 'tiled'] },
+                                restore: { show: true },
+                                saveAsImage: { show: true }
+                            }
+                        },
+                        calculable: true,
+                        xAxis: [
+                            {
+                                type: 'category',
+                                boundaryGap: false,
+                                data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
+                            }
+                        ],
+                        yAxis: [
+                            {
+                                type: 'value'
+                            }
+                        ],
+                        series: [
+                            {
+                                name: '成交',
+                                type: 'line',
+                                // 曲线是否平滑
+                                smooth: true,
+                                //图形样式 图表默认值不同 	填充样式，目前仅支持'default'(实填充)
+                                itemStyle: { normal: { areaStyle: { type: 'default',color : 'yellow' } } },
+                                data: [10, 12, 21, 54, 260, 830, 710]
+                            },
+                            {
+                                name: '预购',
+                                type: 'line',
+                                smooth: true,
+                                itemStyle: { normal: { areaStyle: { type: 'default',color: 'blue' } } },
+                                data: [30, 182, 434, 791, 390, 30, 10]
+                            },
+                            {
+                                name: '意向',
+                                type: 'line',
+                                smooth: false,
+                                itemStyle: { normal: { areaStyle: { type: 'default',color: 'green' } } },
+                                data: [1320, 1132, 601, 234, 120, 90, 20]
+                            }
+                        ]
+                    };
+                
+                
+        
+                // 为echarts对象加载数据 
+                myChart.setOption(option); 
+            
+      
+    </script>
+
+</body>
+
+</html>

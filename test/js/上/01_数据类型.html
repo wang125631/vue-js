@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+</head>
+<body>
+<!--
+1.分类
+基本(值)类型
+    *String:任意字符串
+    *Number:任意数字
+    *boolean: true/false
+    *undefined 
+    *null
+对象(引用)类型
+    *Object:任意对象
+    *Function:一种特别的对象,可以执行
+    *Array:一种特别的对象(数值下标,内部数据有序)
+
+2.判断
+    *typeof  不能判断null和object,object和数组
+    *instanceof 判断对象具体类型
+    *===
+-->
+<script type="text/javascript">
+    //1.typeof 返回数据类型的字符串表达
+    var a;
+    console.log(a,typeof a);// undefined "undefined"
+    console.log(undefined === 'undefined');
+    var b=1;
+    console.log(typeof b === 'number');
+    var c="wpx";
+    console.log(typeof c === 'string');
+    var d=true;
+    console.log(typeof d === 'boolean');
+    var e=null;
+    console.log(typeof e === 'object') ;//object
+    var f=[1,2,3];
+    console.log(typeof f === 'object');
+    //对象
+    var b1 ={
+        b2:[1,'abc',console.log],
+        b3:function(){
+            return function(){
+                return  "内置函数";
+            }
+        }
+    }
+    console.log(typeof b1['b2'][0]);
+    
+    console.log(b1 instanceof Object);
+    console.log(b1.b2 instanceof Array,b1.b2 instanceof Object);
+    console.log(b1.b3 instanceof Function, b1.b3 instanceof Object);
+    
+    console.log('-----------------');
+    b1.b2[2]('Hello Js');
+    console.log(b1.b3()());
+    
+    
+
+</script>
+</body>
+
+</html>
