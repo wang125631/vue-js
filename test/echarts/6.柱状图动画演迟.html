@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <!-- 1 导入vue包 -->
+    <script src="https://cdn.bootcss.com/echarts/4.1.0.rc2/echarts-en.common.js"></script>
+</head>
+
+<body>
+    <div id="app">
+       
+
+        <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+        <div id="main" style="height:400px;width: 1250px;"></div>
+    </div>
+    <script>
+            
+    
+              var myChart = echarts.init(document.getElementById('main')); 
+              var xAxisData = [];
+                var data1 = [];
+                var data2 = [];
+                for (var i = 0; i < 100; i++) {
+                    xAxisData.push('类目' + i);
+                    data1.push((Math.sin(i / 5) * (i / 5 - 10) + i / 6) * 5);
+                    data2.push((Math.cos(i / 5) * (i / 5 - 10) + i / 6) * 5);
+                }
+
+                var option = {
+                    title: {
+                        text: '柱状图动画延迟',
+                        link: 'https://github.com/wang125631/',
+                        subtext:'二级子标题',
+                        sublink: 'https://github.com/wang125631/vue-js'
+                    },
+                    legend: {
+                        data: ['bar', 'bar2'],
+                        align: 'right'
+                    },
+                    toolbox: {
+                        // y: 'bottom',
+                        feature: {
+                            magicType: {
+                                type: ['stack', 'tiled']
+                            },
+                            dataView: {},
+                            saveAsImage: {
+                                pixelRatio: 2
+                            }
+                        }
+                    },
+                    tooltip: {},
+                    xAxis: {
+                        data: xAxisData,
+                        silent: false,
+                        splitLine: {
+                            show: false
+                        }
+                    },
+                    yAxis: {
+                    },
+                    series: [{
+                        name: 'bar',
+                        type: 'bar',
+                        data: data1,
+                        // 动画延时
+                        animationDelay: function (idx) {
+                            return idx * 10;
+                        }
+                    }, {
+                        name: 'bar2',
+                        type: 'bar',
+                        data: data2,
+                        animationDelay: function (idx) {
+                            return idx * 10 + 100;
+                        }
+                    }],
+                    animationEasing: 'elasticOut',
+                    animationDelayUpdate: function (idx) {
+                        return idx * 5;
+                    }
+                };
+                // 为echarts对象加载数据 
+                myChart.setOption(option); 
+            
+      
+    </script>
+
+</body>
+
+</html>
