@@ -28,6 +28,28 @@
                 }
 
                 var option = {
+                        // graphic 是原生图形元素组件。可以支持的图形元素包括：
+                        // image, text, circle, sector, ring, polygon, polyline, rect, line, bezierCurve, arc, group,
+                        graphic: [
+                            {
+                                //自定义添加水印
+                                // 旋转 1/4个圆
+                                rotation: Math.PI / 4,
+                                //'all'：（默认） 表示用自身以及子节点整体的经过 transform 后的包围盒进行定位。 这种方式易于使整体都限制在父元素范围中。
+                                // 'raw'： 表示仅仅用自身（不包括子节点）的没经过 tranform 的包围盒进行定位。 这种方式易于内容超出父元素范围的定位方式。
+                                bounding: 'raw',
+                                right: 2,
+                                bottom: 20,
+                                type: 'text',
+                                style: {
+                                    fill: '#DDD',
+                                    text: 'github wang125631',
+                                    font: 'bold 26px Microsoft YaHei'
+                                }
+
+                            }
+                        ]
+                        ,
                     title: {
                         text: '柱状图动画延迟',
                         link: 'https://github.com/wang125631/',

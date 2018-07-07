@@ -1,5 +1,13 @@
 # vue-js
 
+![](https://cn.vuejs.org/images/logo.png)
+
+Vue (读音 /vjuː/，类似于 view) 是一套用于构建用户界面的渐进式框架。与其它大型框架不同的是，Vue 被设计为可以自底向上逐层应用。Vue 的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合
+
+# vue指令
+
+[vue指令](https://github.com/wang125631/vue-js/wiki)
+
 
 # vue动画
 
@@ -21,6 +29,21 @@
 
 [5.堆叠面积图](https://github.com/wang125631/vue-js/blob/master/test/echarts/5.%E5%A0%86%E5%8F%A0%E9%9D%A2%E7%A7%AF%E5%9B%BE.html)
 
+[6.柱状图动画延时](https://github.com/wang125631/vue-js/blob/master/test/echarts/6.%E6%9F%B1%E7%8A%B6%E5%9B%BE%E5%8A%A8%E7%94%BB%E6%BC%94%E8%BF%9F.html)
+
+[7.柱状图框选](https://github.com/wang125631/vue-js/blob/master/test/echarts/5.%E5%A0%86%E5%8F%A0%E9%9D%A2%E7%A7%AF%E5%9B%BE.html)
+
+[8.阶梯瀑布图](https://github.com/wang125631/vue-js/blob/master/test/echarts/5.%E5%A0%86%E5%8F%A0%E9%9D%A2%E7%A7%AF%E5%9B%BE.html)
+
+[9.正负极下的堆叠柱状图](https://github.com/wang125631/vue-js/blob/master/test/echarts/5.%E5%A0%86%E5%8F%A0%E9%9D%A2%E7%A7%AF%E5%9B%BE.html)
+
+[10.极坐标下的堆叠图](https://github.com/wang125631/vue-js/blob/master/test/echarts/5.%E5%A0%86%E5%8F%A0%E9%9D%A2%E7%A7%AF%E5%9B%BE.html)
+
+[11.环形饼转图](https://github.com/wang125631/vue-js/blob/master/test/echarts/5.%E5%A0%86%E5%8F%A0%E9%9D%A2%E7%A7%AF%E5%9B%BE.html)
+
+[12.环形饼状图](https://github.com/wang125631/vue-js/blob/master/test/echarts/5.%E5%A0%86%E5%8F%A0%E9%9D%A2%E7%A7%AF%E5%9B%BE.html)
+
+[13.嵌套环形图](https://github.com/wang125631/vue-js/blob/master/test/echarts/5.%E5%A0%86%E5%8F%A0%E9%9D%A2%E7%A7%AF%E5%9B%BE.html)
 
 
 
